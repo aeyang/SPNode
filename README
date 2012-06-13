@@ -1,0 +1,7 @@
+run with: 
+
+coffee app.coffee 
+
+or
+
+node app.js
