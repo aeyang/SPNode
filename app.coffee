@@ -7,6 +7,8 @@ app = module.exports = express.createServer();
 
 app.configure(() -> 
   app.set('views', __dirname + '/views')
+  #Specifying which layout file to use
+  app.set('view options', {layout: __dirname + '/views/layouts/layout.jade'})
   app.set('view engine', 'jade')
   app.use(express.bodyParser())
   app.use(express.methodOverride())
