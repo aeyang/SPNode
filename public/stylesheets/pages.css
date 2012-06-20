@@ -1,0 +1,239 @@
+/*PagesController global styles*/
+html, body{
+  margin:2px;
+  padding:2px;
+  height:100%;
+}
+
+/* home page styles */
+h3{
+  padding:5px;
+  margin:0;
+}
+
+h5{
+  padding:0;
+  margin:0;
+  text-align:center;
+}
+
+#home_title_h1{
+  position: absolute;
+  top: 30%;
+  left: 3%;
+}
+
+#home_feed_div{
+  border: solid 2px;
+  position: absolute;
+  top: 42%;
+  width: 60%;
+  left:30%;
+  height: 100%;
+  background-color: grey;
+  opacity: 0.7;
+  border-radius: 25px;
+}
+
+/*.hidden{
+  visibility: hidden;
+}*/
+
+#signin_msg_home{
+  text-align: center;
+  background-color: white;
+  font-size: 30px;
+  font-family: Palatino;
+}
+
+#home_newsfeed_button{
+  position: absolute;
+  left: 55%;
+  top: 35%;
+  width: 10%;
+  height: 7%;
+
+}
+
+#newsfeed_story_p {
+    margin: 5px;
+    width: 75%;
+    font-family: Arial;
+}
+
+/* about page styles */
+#about_content_div{
+  position:relative;
+  top:150px;
+}
+
+/* lastFM page styles */
+
+#lastFM_content_div{
+  position:relative;
+  top:150px;
+}
+
+#lastFM_upcoming_submit{
+  margin: 10px;
+}
+
+#lastFM_left_div{
+  margin:0;
+  padding:0;
+  width: 49%;
+  height: 100%;
+  float:left;
+  /* try this
+  position:absolute;
+  top:0;
+  left:0;
+  width:50%;
+  */
+}
+
+#lastFM_right_div{
+  margin:0;
+  padding:0;
+  width: 49%;
+  height: 100%;
+  float:right;
+  /* try this
+  position:absolute;
+  top:0;
+  right:0;
+  width:50%;
+  */
+}
+
+strong{
+  margin-top:15px;
+}
+
+#lastFM_content_div{
+  position:relative;
+  top:200px;  
+}
+
+#lastFM_map_div {
+  position: fixed;
+  width: 500px; 
+  height: 400px; 
+  float: none;
+  box-shadow: 10px 10px 5px #888888;
+  margin: 20px;
+}
+
+
+#lastFM_events_list {
+  margin:0;
+  padding:0;
+  list-style-type: none;
+
+}
+
+#lastFM_events_list li{
+  margin: 5px 0px 5px 0px;
+  border: solid 1px;
+  display: block;
+}
+
+#lastFM_events_list li img{
+  vertical-align: text-top;
+}
+
+.lastFM_panel_front h2{
+  padding:8px 6px 6px 6px;
+  font-size:15px;
+  color:#eee;
+  letter-spacing:-1px;
+  float:left;
+}
+
+.lastFM_panel_front img{
+  float:left;
+  border:1px solid #000;
+  margin-right:10px;
+  display: inline-block;
+}
+
+.lastFM_panel_front{
+  /*border:1px solid #008AFF;*/
+  margin-top:10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  border-radius:25px;
+}
+
+.lastFM_info_span{
+  display:none;
+  background-color:#000;
+  margin: 10px;
+  opacity:0.8;
+}
+
+.lastFM_info_span p, .lastFM_info_span h3{
+  color:white;
+}
+
+.sub_panel:hover span{
+  display:block;
+}
+
+.sub_panel{
+  clear:both;
+  float:left;
+  width:100%;
+}
+
+/* Amazon page styles */
+#amazon_content_div{
+  position: relative;
+  top: 200px;
+}
+
+#amazon_content_div div span{
+  display:none;
+  position: absolute;
+}
+
+#amazon_content_div div img{
+  margin:20px;
+}
+
+#amazon_widget_div {
+  border: 2px solid;
+  width: 500px; 
+  height: 800px; 
+  float:right;
+  box-shadow: 10px 10px 5px #888888;
+  margin: 20px;
+}
+
+/* Search page styles */
+#search_content_div{
+  position:relative;
+  top:170px;  
+}
+
+#search_info_div {
+  border-radius: 25px;
+  margin: 20px;
+}
+
+#search_info_div img {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#search_info_div p, h3{
+  margin-right:auto;
+  margin-left:auto;
+  max-width: 1300px;
+}
+
+#search_save_div {
+  width: 100px;
+  height: 100px;
+}
