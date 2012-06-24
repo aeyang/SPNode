@@ -1,4 +1,43 @@
 div
   div.navigation#nav
     div.item.home
-      img(src="../../images/navigation/bg_home.png")
+      img.circle(src="../../images/navigation/bg_home.png", alt="", width="199", height='199')
+      a.icon(href='#')
+      h2 Home 
+      ul
+        li 
+          a(href='/index') Home
+        li 
+          a(href='/about') About 
+          
+    div.item.user
+      img.circle(src="../../images/navigation/bg_user.png", alt="", width="199", height='199')
+      a.icon(href='#')
+      h2 User 
+      ul
+          //Check if signed_in or not. 
+    
+    div.item.concerts
+      img.circle(src="../../images/navigation/bg_concerts.png", alt="", width="199", height='199')
+      a.icon(href='#')
+      h2 Concerts 
+      ul
+        li 
+          a(href='/lastFM') LastFM 
+
+    div.item.albums
+      img.circle(src="../../images/navigation/bg_albums.png", alt="", width="199", height='199')
+      a.icon(href='#')
+      h2 Albums 
+      ul
+        li 
+          a(href='/amazon') Amazon 
+
+    div.item.search
+      img.circle(src="../../images/navigation/bg_search.png", alt="", width="199", height='199')
+      a.icon(href='#')
+      h2 Search  
+      ul
+        li 
+          a(href='/search') Search  
+

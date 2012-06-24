@@ -75,19 +75,19 @@ a.icon{
     cursor:pointer;
 }
 .user a.icon{
-    background:transparent url(../assets/navigation/user.png) no-repeat 0px 0px;
+    background:transparent url(../../images/navigation/user.png) no-repeat 0px 0px;
 }
 .home a.icon{
-    background:transparent url(../assets/navigation/home.png) no-repeat 0px 0px;
+    background:transparent url(../../images/navigation/home.png) no-repeat 0px 0px;
 }
 .albums a.icon{
-    background:transparent url(../assets/navigation/albums.png) no-repeat 0px 0px;
+    background:transparent url(../../images/navigation/albums.png) no-repeat 0px 0px;
 }
 .search a.icon{
-    background:transparent url(../assets/navigation/search.png) no-repeat 0px 0px;
+    background:transparent url(../../images/navigation/search.png) no-repeat 0px 0px;
 }
 .concerts a.icon{
-    background:transparent url(../assets/navigation/concerts.png) no-repeat 0px 0px;
+    background:transparent url(../../images/navigation/concerts.png) no-repeat 0px 0px;
 }
 .navigation .item a.active{
     background-position:0px -52px;

@@ -12,3 +12,11 @@ exports.about = (req, res) ->
 # GET amazon page
 exports.amazon = (req, res) ->
   res.render('amazon', {title: 'Amazon'})
+
+# GET lastFM page
+exports.lastFM = (req, res) ->
+  res.render('lastFM', {title: 'LastFM'})
+
+#GET search page
+exports.search= (req, res) ->
+  res.render('search', {title: 'Search'})
