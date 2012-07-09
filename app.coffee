@@ -15,6 +15,7 @@ app.configure(() ->
   app.use(express.cookieParser())
   app.use(express.session({ secret: 'your secret here' }))
   app.use(app.router)
+  #Sets public directory as web root.
   app.use(express.static(__dirname + '/public'))
 )
 
