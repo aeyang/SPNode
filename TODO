@@ -1,1 +1,11 @@
 6/19: Added css file for all the pages (pages.css). But Express only fetches the one style.css file. Rails will combine all the css files in the stylesheets dir. How to do that with Express?
+  + just include the css files in the html  
+
+
+- Bubbly headers --> 7/11
+- Google maps -->
+- Authentication -->
+- Database  -->
+- Last.FM  -->
+- Amazon  -->
+- Bing for news  -->

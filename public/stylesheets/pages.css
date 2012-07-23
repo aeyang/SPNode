@@ -67,6 +67,11 @@ h5{
   top:150px;
 }
 
+#about_map_div{
+  width:500px;
+  height:400px;
+}
+
 /* lastFM page styles */
 
 #lastFM_content_div{
