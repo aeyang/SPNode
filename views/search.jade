@@ -1,11 +1,14 @@
-#search_content_div
-  form(action='/search', method='get')
-    div 
-      label(for='artist_search_field') Search 
-      input(name='artist_search_field', type='text')
-      input(type='submit', value='Submit')
+extends layouts/layout
+
+block content 
+   #search_content_div
+     form(action='/search', method='get')
+       div 
+         label(for='artist_search_field') Search 
+         input(name='artist_search_field', type='text')
+         input(type='submit', value='Submit')
 
 
-  #search_info_div
+     #search_info_div
 
-  #search_save_div
+     #search_save_div

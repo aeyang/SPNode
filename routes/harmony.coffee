@@ -1,3 +1,4 @@
+#Controllers
 
 #GET home page
 exports.index = (req, res) ->
@@ -19,3 +20,18 @@ exports.lastFM = (req, res) ->
 #GET search page
 exports.search= (req, res) ->
   res.render('search', {title: 'Search'})
+
+#GET session/new
+exports.newSession = (req, res) ->
+  res.render('sessions/new', {title: 'New', redirect: req.query.redir})
+
+#POST session/new
+exports.postSession = (req, res) ->
+  users = require '../DB/users'
+  users.authenticate(req.body.login, req.body.password, (user) ->
+    if(user)
+      req.session.user = user
+      res.redirect(req.body.redirect || '/')
+    else
+      res.redirect('sessions/new', {title:'New', redirect: req.body.redirect})
+  )

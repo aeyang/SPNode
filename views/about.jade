@@ -1,37 +1,41 @@
-script(src="javascripts/pages/about.js")
+extends layouts/layout
 
-#about_content_div
-  h1#about About This Site and Me
-  
-  div
-    p Welcome to the music explorer web app, your one-stop shop for music information!
-      |This site is part of my senior project which is helping me gain experience in working with web apps.
-      |Some of the technologies that I will be getting more familiar with here are:  
+block append scripts
+  script(src="javascripts/pages/about.js")
 
-    ul
-      li Node.JS
-      li Express
-      li Coffeescript
-      li Jade
-      li CSS
-      li Web APIs
-        ul
-          li Google Maps
-          li Last.familiar
-          li Wikipedia
-          li Amazon
-          li Facebook
+block content 
+  #about_content_div
+    h1#about About This Site and Me
+    
+    div
+      p Welcome to the music explorer web app, your one-stop shop for music information!
+        |This site is part of my senior project which is helping me gain experience in working with web apps.
+        |Some of the technologies that I will be getting more familiar with here are:  
 
-    |It is my hope that all of these will come together to make a site where you
-    |can go to find out about your favorite music and bands as well as 
-    |discover new artists to follow.  
+      ul
+        li Node.JS
+        li Express
+        li Coffeescript
+        li Jade
+        li CSS
+        li Web APIs
+          ul
+            li Google Maps
+            li Last.familiar
+            li Wikipedia
+            li Amazon
+            li Facebook
 
-    #about_map_div
-      p Map should go here
+      |It is my hope that all of these will come together to make a site where you
+      |can go to find out about your favorite music and bands as well as 
+      |discover new artists to follow.  
 
-    button#about_map_button(input_type="button") Find my location
+      #about_map_div
+        p Map should go here
 
-    #about_msg_div
-      p Messages should go here
+      button#about_map_button(input_type="button") Find my location
+
+      #about_msg_div
+        p Messages should go here
 
 

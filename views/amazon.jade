@@ -1,12 +1,15 @@
-h1#amazon
+extends layouts/layout
 
-#amazon_content_div
+block content 
+  h1#amazon
 
-  form(action='/amazon', method='get')
-    h3 Search for Albums
-    label(for="amazon_search_form") by Band/Artist
-    input#amazon_search_form(name="amazon_search_form", type='text')
-    input(name="commit", type="submit", value="Search")
+  #amazon_content_div
 
-  
-  #amazon_results_div
+     form(action='/amazon', method='get')
+       h3 Search for Albums
+       label(for="amazon_search_form") by Band/Artist
+       input#amazon_search_form(name="amazon_search_form", type='text')
+       input(name="commit", type="submit", value="Search")
+
+     
+   #amazon_results_div

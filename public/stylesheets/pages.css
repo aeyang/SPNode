@@ -242,3 +242,9 @@ strong{
   width: 100px;
   height: 100px;
 }
+
+/* Session stuff */
+#session_content_div{
+  position: relative;
+  top: 200px;
+}
