@@ -36,7 +36,10 @@ html(lang='en')
           )
 
   block header 
-    include ../partials/_header 
+    include ../partials/_header
+    - if(session.flash)
+      .flash_notice
+        p= session.flash
   block content
 
     

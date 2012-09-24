@@ -8,7 +8,6 @@ exports.index = (req, res) ->
 exports.about = (req, res) ->
   res.render('about', { title: 'About'}) 
 
-
 # GET amazon page
 exports.amazon = (req, res) ->
   res.render('amazon', {title: 'Amazon'})
@@ -23,6 +22,9 @@ exports.search= (req, res) ->
 
 #GET session/new
 exports.newSession = (req, res) ->
+  #console.log("GET sessions/new")
+  #console.log("req.session.flash is: " + req.session.flash)
+  #console.log("req.query.redir is " + req.query.redir)
   res.render('sessions/new', {title: 'New', redirect: req.query.redir})
 
 #POST session/new
@@ -31,7 +33,11 @@ exports.postSession = (req, res) ->
   users.authenticate(req.body.login, req.body.password, (user) ->
     if(user)
       req.session.user = user
+      req.session.flash = null
       res.redirect(req.body.redirect || '/')
     else
-      res.redirect('sessions/new', {title:'New', redirect: req.body.redirect})
+      req.session.flash = "Authentication Failed!"
+      #console.log("Posted wrong password")
+      #console.log(req.query.redirect + "=" + req.body.redirect)
+      res.render('sessions/new', {title: 'Try Again!', redirect: req.body.redirect})
   )

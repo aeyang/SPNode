@@ -11,14 +11,20 @@ app.configure(() ->
   app.set('view engine', 'jade')
   app.use(express.bodyParser())
   #This explicitly tells jade to handle .jade files. I could tell it to handle .html files. 
-  app.engine('.jade', require('jade').__express)
+  #app.engine('.jade', require('jade').__express)
   app.use(express.methodOverride())
   app.use(express.cookieParser())
   app.use(express.session({ store: new express.session.MemoryStore({reapInterval: 50000 * 10}), secret: 'chubby bunny' }))
-  app.use(app.router)
+  #app.use(app.router)
   #app.use(express.compiler({src:__dirname + '/public', enable: ["coffeescript"]}))
   #Sets public directory as web root.
   app.use(express.static(__dirname + '/public'))
+  app.use((req, res, next) ->
+    #console.log("In Middleware. Request is for " + req.path)
+    res.locals.session = req.session
+    next()
+  )
+  app.use(app.router)
 )
 
 app.configure('development', () ->
@@ -31,6 +37,7 @@ app.configure('production', () ->
 
 #Creating route middleware (Or functions that do stuff before the response gets routed)
 requiresLogin = (req, res, next) ->
+  #console.log("In requiresLogin. req.session.user is " + req.session.user)
   if req.session.user
     next()
   else
