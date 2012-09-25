@@ -40,6 +40,10 @@ html(lang='en')
     - if(session.flash)
       .flash_notice
         p= session.flash
+    - if(session.user)
+      .logged_in_div
+        p= session.user
+
   block content
 
     

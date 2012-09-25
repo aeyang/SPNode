@@ -1,0 +1,26 @@
+extends ../layouts/layout
+
+block content
+  #usersignup_content_div
+
+    h1#users_signup_h1 Sign Up 
+
+    #users_signup_div
+      form(action='/users/new', method='POST')
+        .user_field
+          label(for='username') Username
+          input(type='text', name='username')
+
+        .user_field
+          label(for='password') Password
+          input(type='password', name='password')
+
+        .user_field
+          label(for='password_confirmation') Confirm Password 
+          input(type='password', name='password_confirmation')
+
+        .user_field
+          label(for='avatar') Upload Your Avatar 
+
+        .user_field
+          input(type='submit') Sign Up  

@@ -15,7 +15,17 @@ div
       a.icon(href='#')
       h2 User 
       ul
-          //Check if signed_in or not. 
+        if(session.user)
+          li 
+            a(href='/users/profile') Profile 
+          li
+            a(href='/users/signout') Sign Out
+        else
+          li
+            a(href='/sessions/new') Sign In 
+          li 
+            a(href='/users/new') Sign Up
+
     
     div.item.concerts
       img.circle(src="../../images/navigation/bg_concerts.png", alt="", width="199", height='199')

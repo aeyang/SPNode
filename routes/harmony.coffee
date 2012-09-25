@@ -17,7 +17,7 @@ exports.lastFM = (req, res) ->
   res.render('lastFM', {title: 'LastFM'})
 
 #GET search page
-exports.search= (req, res) ->
+exports.search = (req, res) ->
   res.render('search', {title: 'Search'})
 
 #GET session/new
@@ -37,7 +37,23 @@ exports.postSession = (req, res) ->
       res.redirect(req.body.redirect || '/')
     else
       req.session.flash = "Authentication Failed!"
+      req.session.user = null
       #console.log("Posted wrong password")
       #console.log(req.query.redirect + "=" + req.body.redirect)
       res.render('sessions/new', {title: 'Try Again!', redirect: req.body.redirect})
   )
+
+exports.showUser = (req, res) ->
+  res.render('users/show', {title: 'Profile Page'})
+
+exports.deleteSession = (req, res) ->
+  req.session.destroy()
+  res.redirect('/')
+
+exports.newUser = (req, res) ->
+  res.render('users/new', {title: 'New User'})
+
+exports.postUser = (req, res) ->
+  console.log(req.body.username)
+  console.log(req.body.password)
+  res.redirect('/')
