@@ -1,5 +1,7 @@
 #Controllers
 
+users = require '../DB/users'
+
 #GET home page
 exports.index = (req, res) ->
   res.render('index', { title: 'Home' })
@@ -29,17 +31,12 @@ exports.newSession = (req, res) ->
 
 #POST session/new
 exports.postSession = (req, res) ->
-  users = require '../DB/users'
-  users.authenticate(req.body.login, req.body.password, (user) ->
+  users.authenticate(req.body.login, req.body.password, (err, user) ->
     if(user)
       req.session.user = user
-      req.session.flash = null
       res.redirect(req.body.redirect || '/')
     else
-      req.session.flash = "Authentication Failed!"
-      req.session.user = null
-      #console.log("Posted wrong password")
-      #console.log(req.query.redirect + "=" + req.body.redirect)
+      res.locals.flash = err
       res.render('sessions/new', {title: 'Try Again!', redirect: req.body.redirect})
   )
 
@@ -56,4 +53,8 @@ exports.newUser = (req, res) ->
 exports.postUser = (req, res) ->
   console.log(req.body.username)
   console.log(req.body.password)
+  users.save req.body.username, req.body.password, (err) ->
+    if(err)
+      console.log(err)
+
   res.redirect('/')

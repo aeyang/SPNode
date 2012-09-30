@@ -19,12 +19,12 @@ app.configure(() ->
   #Sets public directory as web root.
   app.use(express.static(__dirname + '/public'))
 
-  # My middleware to save session info. 
+  app.locals.flash = null
+  # My middleware to save session info. Used by header to check if still signed in. 
   app.use((req, res, next) ->
     res.locals.session = req.session
     next()
   )
-
   app.use(app.router)
 )
 
@@ -43,25 +43,20 @@ app.locals({config: {
 
 #Creating route middleware (Or functions that do stuff before the response gets routed)
 requiresLogin = (req, res, next) ->
-  #console.log("In requiresLogin. req.session.user is " + req.session.user)
   if req.session.user
-    if !app.get('signed_in')
-      #This is how you use app.set
-      #app.set('signed_in', req.session.user)
-      #console.log(app.locals.signed_in)
     next()
   else
     res.redirect('/sessions/new?redir=' + req.url)
 
 # Routes
-app.get('/', requiresLogin, routes.index)
+app.get('/', routes.index)
 app.get('/about', routes.about)
 app.get('/amazon', routes.amazon)
 app.get('/lastFM', routes.lastFM)
-app.get('/search', routes.search)
+app.get('/search', requiresLogin, routes.search)
 app.get('/sessions/new', routes.newSession)
 app.post('/sessions/new', routes.postSession)
-app.get('/users/profile', routes.showUser)
+app.get('/users/profile', requiresLogin, routes.showUser)
 app.get('/users/signout', routes.deleteSession)
 app.get('/users/new', routes.newUser)
 app.post('/users/new', routes.postUser)

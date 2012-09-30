@@ -37,9 +37,9 @@ html(lang='en')
 
   block header 
     include ../partials/_header
-    - if(session.flash)
+    - if(flash)
       .flash_notice
-        p= session.flash
+        p= flash
     - if(session.user)
       .logged_in_div
         p= session.user
