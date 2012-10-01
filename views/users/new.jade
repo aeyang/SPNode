@@ -6,7 +6,7 @@ block content
     h1#users_signup_h1 Sign Up 
 
     #users_signup_div
-      form(action='/users/new', method='POST')
+      form(action='/users/new', method='POST', enctype='multipart/form-data')
         .user_field
           label(for='username') Username
           input(type='text', name='username')
@@ -21,6 +21,7 @@ block content
 
         .user_field
           label(for='avatar') Upload Your Avatar 
+          input(type='file', name='avatar')
 
         .user_field
           input(type='submit') Sign Up  

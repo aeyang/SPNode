@@ -1,5 +1,6 @@
 Mongoose = require 'mongoose'
 bcrypt = require 'bcrypt'
+fs = require 'fs'
 DB = Mongoose.connect('mongodb://localhost/test')
 SALT_WORK_FACTOR = 10;
 
@@ -11,7 +12,8 @@ ObjectId = Schema.ObjectId
 # Therefore, you need to run this code every time your app starts up. 
 UserSchema = new Schema(
   login: {type: String, required: true, index: {unique: true} }, 
-  password: {type: String, required: true }
+  password: {type: String, required: true },
+  avatar: {data: Buffer, contentType: String}
 )
 
 UserSchema.pre('save', (next) ->
@@ -60,9 +62,32 @@ module.exports.authenticate = UserSchema.methods.authenticate = (login, password
       callback("No user named " + login, null)
   )
 
-module.exports.save = UserSchema.methods.save = (login, password, callback) ->
-  UserCollection.create {login: login, password: password}, (err) ->
-    console.log("in save")
-    if err
-      console.log("in save " + err)
+module.exports.save = UserSchema.methods.save = (login, password, picture, callback) ->
+  user = new UserCollection()
+
+  fs.readFile(picture.path, (err, data) ->
+    if(err)
+      console.log("Error in fs.readFile")
       callback(err)
+    else
+      user.login = login
+      user.password = password
+      user.avatar.data = data
+      user.avatar.contentType = picture.type
+
+      user.save (err) ->
+        console.log("in save")
+        if err
+          console.log("in save " + err)
+          callback(err)
+        else
+          callback(null)
+  )
+
+
+
+  # UserCollection.create {login: login, password: password}, (err) ->
+  #   console.log("in save")
+  #   if err
+  #     console.log("in save " + err)
+  #     callback(err)

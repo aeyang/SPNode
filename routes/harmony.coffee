@@ -24,9 +24,6 @@ exports.search = (req, res) ->
 
 #GET session/new
 exports.newSession = (req, res) ->
-  #console.log("GET sessions/new")
-  #console.log("req.session.flash is: " + req.session.flash)
-  #console.log("req.query.redir is " + req.query.redir)
   res.render('sessions/new', {title: 'New', redirect: req.query.redir})
 
 #POST session/new
@@ -51,10 +48,23 @@ exports.newUser = (req, res) ->
   res.render('users/new', {title: 'New User'})
 
 exports.postUser = (req, res) ->
-  console.log(req.body.username)
-  console.log(req.body.password)
-  users.save req.body.username, req.body.password, (err) ->
+  console.log req.files
+  users.save req.body.username, req.body.password, req.files.avatar, (err) ->
     if(err)
       console.log(err)
+      res.locals.flash = err
+      res.render('users/new', {title: 'Try Again!'})
+    else
+      users.authenticate(req.body.username, req.body.password, (error, user) ->
+        if(user)
+          req.session.user = user
+          console.log("Successfully made new user and authenticated. setting flash now")
+          res.locals.flash = 'Successfully Created New Profile!'
+          res.render('index', {title: 'Welcome!'})
+        else
+          res.locals.flash = error
+          res.render('users/new', {title: 'Try Again!'})
+      )
 
-  res.redirect('/')
+
+  #res.redirect('/')

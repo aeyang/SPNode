@@ -23,6 +23,7 @@ app.configure(() ->
   # My middleware to save session info. Used by header to check if still signed in. 
   app.use((req, res, next) ->
     res.locals.session = req.session
+    console.log(req.session.flash)
     next()
   )
   app.use(app.router)
