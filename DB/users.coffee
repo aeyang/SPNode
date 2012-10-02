@@ -84,10 +84,9 @@ module.exports.save = UserSchema.methods.save = (login, password, picture, callb
           callback(null)
   )
 
-
-
-  # UserCollection.create {login: login, password: password}, (err) ->
-  #   console.log("in save")
-  #   if err
-  #     console.log("in save " + err)
-  #     callback(err)
+module.exports.find = UserSchema.methods.find = (user, callback) ->
+  UserCollection.findOne {login: user}, (err, user) ->
+    if(err)
+      callback(err, null) 
+    else
+      callback(null, user)

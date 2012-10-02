@@ -38,7 +38,7 @@ exports.postSession = (req, res) ->
   )
 
 exports.showUser = (req, res) ->
-  res.render('users/show', {title: 'Profile Page'})
+  res.render('users/show', {title: 'Profile')
 
 exports.deleteSession = (req, res) ->
   req.session.destroy()
@@ -66,5 +66,11 @@ exports.postUser = (req, res) ->
           res.render('users/new', {title: 'Try Again!'})
       )
 
-
-  #res.redirect('/')
+exports.avatars = (req, res) ->
+  users.find req.session.user, (err, user) ->
+    if user
+      res.writeHead('200', {'Content-Type': 'image/png'})
+      res.end(user.avatar.data, 'binary')
+    else
+      res.locals.flash = err
+      res.render('index', {title: 'Home'})

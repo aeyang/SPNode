@@ -61,6 +61,7 @@ app.get('/users/profile', requiresLogin, routes.showUser)
 app.get('/users/signout', routes.deleteSession)
 app.get('/users/new', routes.newUser)
 app.post('/users/new', routes.postUser)
+app.get('/avatars', routes.avatars)
 
 app.listen(3000, () ->
   console.log("Express server listening on port: 3000" + " environment: " + app.settings.env)
