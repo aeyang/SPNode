@@ -12,16 +12,11 @@
 */
 html 
 {
-    background: url(../images/nodejs_logo.png) fixed, url(../images/plain-green-.jpg) fixed;
-    background-repeat: no-repeat, no-repeat; 
-    background-position: right bottom, center center;
+    
+    background: url(../images/canvas.jpg) fixed;
+    /*background-repeat: no-repeat, no-repeat;*/ 
+    /*background-position: right bottom, center center;*/
     background-size: auto, cover;
-
-    /* dont really know what this is for...
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    */
 }
 
 /* Top-level headers should look fancy */
@@ -146,35 +141,6 @@ a.icon{
     -webkit-box-shadow:1px 1px 4px #666;
     box-shadow:1px 1px 4px #666;
 }
-/*nav {
-    float:right;
-    padding 0 0.7em;
-    white-space: nowrap;
-}
-
-nav ul {
-    margin:0;
-    padding:0;
-}
-
-nav ul li{
-    list-style-type:none;
-    display: inline-block; /*This is what makes the header links line up horizontally*/
-    /*padding: 0.2em 0;
-}
-
-nav ul li a{
-    padding 0 5px;
-    font-weight: bold;
-}
-
-nav ul li a:visited {
-    color: black;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}*/
 
 /* Flash styles */
 .flash_notice {

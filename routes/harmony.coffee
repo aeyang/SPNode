@@ -1,5 +1,4 @@
 #Controllers
-
 users = require '../DB/users'
 
 #GET home page
@@ -38,7 +37,7 @@ exports.postSession = (req, res) ->
   )
 
 exports.showUser = (req, res) ->
-  res.render('users/show', {title: 'Profile')
+  res.render('users/show', {title: 'Profile'})
 
 exports.deleteSession = (req, res) ->
   req.session.destroy()
