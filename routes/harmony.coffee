@@ -1,5 +1,6 @@
 #Controllers
 users = require '../DB/users'
+lastFM = require '../DB/lastFM'
 
 #GET home page
 exports.index = (req, res) ->
@@ -19,6 +20,7 @@ exports.lastFM = (req, res) ->
 
 #GET search page
 exports.search = (req, res) ->
+  console.log "in search"
   res.render('search', {title: 'Search'})
 
 #GET session/new
@@ -73,3 +75,14 @@ exports.avatars = (req, res) ->
     else
       res.locals.flash = err
       res.render('index', {title: 'Home'})
+
+
+exports.lastFM_artist_info = (req, res) ->
+  console.log req.url
+  console.log req.body
+  console.log req.query.name
+
+  #Somehow this magically sends the value to the right callback. 
+  lastFM.getArtistInfo req.query.name, (status, data) ->
+    console.log("calling res.json")
+    res.json(status, data)

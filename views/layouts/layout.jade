@@ -10,7 +10,7 @@ html(lang='en')
       script(src="/javascripts/jquery.easing.1.3.js")
       script(type="text/coffeescript").
         $ ->
-          $('#nav > div').hover( ->
+          $('#nav > div').hover( ()->
             $this = $(this)
             $this.find('img').stop().animate {
               'width'     :'199px'
@@ -18,11 +18,11 @@ html(lang='en')
               'top'       :'-25px'
               'left'      :'-25px'
               'opacity'   :'1.0'
-            }, 500, 'easeOutBack', ->
+            }, 500, 'easeOutBack', ()->
               $(this).parent().find('ul').fadeIn(700) 
             $this.find('a:first,h2').addClass('active')
           
-          ->
+          ()->
             $this = $(this)
             $this.find('ul').fadeOut 500
             $this.find('img').stop().animate {

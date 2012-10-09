@@ -1,14 +1,16 @@
 extends layouts/layout
 
+append scripts
+  script(type='text/coffeescript', src='javascripts/pages/search.coffee')
+
 block content 
    #search_content_div
-     form(action='/search', method='get')
-       div 
-         label(for='artist_search_field') Search 
-         input(name='artist_search_field', type='text')
-         input(type='submit', value='Submit')
+     form()
+       label(for='artist_search_field') Search 
+       input(name='artist_search_field', type='text')
+       input(type='submit', value='Submit')
 
 
-     #search_info_div
+    #search_info_div
 
-     #search_save_div
+    #search_save_div

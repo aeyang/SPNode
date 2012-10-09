@@ -23,7 +23,7 @@ app.configure(() ->
   # My middleware to save session info. Used by header to check if still signed in. 
   app.use((req, res, next) ->
     res.locals.session = req.session
-    console.log(req.session.flash)
+    #console.log(req.session.flash)
     next()
   )
   app.use(app.router)
@@ -62,6 +62,7 @@ app.get('/users/signout', routes.deleteSession)
 app.get('/users/new', routes.newUser)
 app.post('/users/new', routes.postUser)
 app.get('/avatars', routes.avatars)
+app.get('/ajax/lastFM/artist_info', routes.lastFM_artist_info)
 
 app.listen(3000, () ->
   console.log("Express server listening on port: 3000" + " environment: " + app.settings.env)
