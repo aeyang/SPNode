@@ -10,10 +10,12 @@ ObjectId = Schema.ObjectId
 # Define a schema so the application understands how to map data from MongoDB into Javascript objects.
 # Schema is a part of the application, it has nothing to do with the database.
 # Therefore, you need to run this code every time your app starts up. 
+
 UserSchema = new Schema(
   login: {type: String, required: true, index: {unique: true} }, 
   password: {type: String, required: true },
-  avatar: {data: Buffer, contentType: String}
+  avatar: {data: Buffer, contentType: String},
+  bands: [{name: String}]
 )
 
 UserSchema.pre('save', (next) ->
@@ -90,3 +92,14 @@ module.exports.find = UserSchema.methods.find = (user, callback) ->
       callback(err, null) 
     else
       callback(null, user)
+
+module.exports.add_band = UserSchema.methods.add = (user, band, callback) ->
+  console.log("In add_band")
+  UserCollection.update {login: user}, {$push: {bands: {name: band}}}, (err, user) ->
+    if(err)
+      console.log("error " + err)
+      callback(err)
+    else
+      console.log("In success")
+      callback('Success')
+

@@ -1,0 +1,22 @@
+$ ->
+  console.log("hello")
+  $("#home_newsfeed_button").bind 'click', () ->
+    console.log("clicked")
+    $.getJSON '/ajax/gigulate/artist_news?', (data, status) ->
+      try
+        obj = $.parseJSON(data)
+      catch e
+        alert('invalid JSON')
+      
+      if $('#home_feed_div').children().length > 0
+        $('#home_feed_div').empty()
+
+
+      for story in obj['news.stories'].story
+        story_div = $('<div id="newsfeed_story_p"></div>').appendTo('#home_feed_div')
+        story_div.append("<b>" + story.title + "</b>")
+        story_div.append("<p><a href=" + story.url + ">" + story.url + "</a></p>")
+        story_div.append("<p>" + story["date.published"] + '</p>')
+
+      console.log $('#home_feed_div').children()
+

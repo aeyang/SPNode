@@ -11,14 +11,14 @@ module.exports.getArtistInfo = getArtistInfo = (artist, callback) ->
   }
 
   req = http.request options, (response) ->
-    tweetData = ''
+    Data = ''
 
-    response.on('data', (tweets) -> 
-      tweetData += tweets + "\n"
+    response.on('data', (data) -> 
+      Data += data
     )
 
     response.on('end', () -> 
-      callback(response.statusCode, tweetData)
+      callback(Data, response.statusCode)
     )
 
   req.end()

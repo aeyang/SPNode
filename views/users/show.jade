@@ -3,3 +3,10 @@ extends ../layouts/layout
 block content
   h1= session.user
   img(src='/avatars')
+
+  b Bands you are following:
+  #show_div
+    ul
+      - each item in images
+        li= item.name
+          img(src=item.url)

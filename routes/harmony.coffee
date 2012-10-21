@@ -1,6 +1,9 @@
 #Controllers
 users = require '../DB/users'
 lastFM = require '../DB/lastFM'
+Amazon = require '../DB/amazon'
+gigulate = require '../DB/gigulate'
+async = require 'async'
 
 #GET home page
 exports.index = (req, res) ->
@@ -38,16 +41,35 @@ exports.postSession = (req, res) ->
       res.render('sessions/new', {title: 'Try Again!', redirect: req.body.redirect})
   )
 
+#GET users/show
 exports.showUser = (req, res) ->
-  res.render('users/show', {title: 'Profile'})
+  users.find req.session.user, (err, user) ->
+    if user
+      images = []
+      do (images) ->
+        async.forEach user.bands, (band, callback)->
+          lastFM.getArtistInfo(band.name, (data, status) ->
+            data = JSON.parse(data)
+            images.push {name: band.name, url: data.artist.image[3]["#text"]}
+            callback(null)
+          )
+        ,(err) ->
+          if err 
+            res.locals.flash = err 
+            res.render('users/show', {title: 'Profile'})
+          else
+            res.render('users/show', {title: 'Profile', images: images})
 
+#DELETE session
 exports.deleteSession = (req, res) ->
   req.session.destroy()
   res.redirect('/')
 
+#GET users/new
 exports.newUser = (req, res) ->
   res.render('users/new', {title: 'New User'})
 
+#POST users/new
 exports.postUser = (req, res) ->
   console.log req.files
   users.save req.body.username, req.body.password, req.files.avatar, (err) ->
@@ -67,6 +89,7 @@ exports.postUser = (req, res) ->
           res.render('users/new', {title: 'Try Again!'})
       )
 
+#GET 
 exports.avatars = (req, res) ->
   users.find req.session.user, (err, user) ->
     if user
@@ -78,11 +101,28 @@ exports.avatars = (req, res) ->
 
 
 exports.lastFM_artist_info = (req, res) ->
-  console.log req.url
-  console.log req.body
-  console.log req.query.name
-
   #Somehow this magically sends the value to the right callback. 
-  lastFM.getArtistInfo req.query.name, (status, data) ->
+  lastFM.getArtistInfo req.query.name, (data, status) ->
     console.log("calling res.json")
-    res.json(status, data)
+    res.json(data, status)
+
+exports.save_artist_info = (req, res) ->
+  band = req.body.name
+  console.log(band)
+  users.add_band req.session.user, band, (status) ->
+    console.log(status)
+    res.send(status)
+
+
+exports.gigulate_artist_news = (req, res) ->
+  console.log("in ajax gigulate")
+  gigulate.getArtistNews req.session.user, (data, err) ->
+    res.json(data, err)
+
+
+exports.amazon_album_info = (req, res) ->
+  Amazon.getAlbumInfo req.query.name, (data, status) ->
+    console.log("Calling amazon")
+    console.log(loadXML(data))
+    console.log(status)
+

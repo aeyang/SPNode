@@ -11,8 +11,6 @@ app.configure(() ->
   app.set('views', __dirname + '/views')
   app.set('view engine', 'jade')
   app.use(express.bodyParser())
-  #This explicitly tells jade to handle .jade files. I could tell it to handle .html files. 
-  #app.engine('.jade', require('jade').__express)
   app.use(express.methodOverride())
   app.use(express.cookieParser())
   app.use(express.session({ store: new express.session.MemoryStore({reapInterval: 50000 * 10}), secret: 'chubby bunny' }))
@@ -63,6 +61,9 @@ app.get('/users/new', routes.newUser)
 app.post('/users/new', routes.postUser)
 app.get('/avatars', routes.avatars)
 app.get('/ajax/lastFM/artist_info', routes.lastFM_artist_info)
+app.post('/ajax/lastFM/artist_info', routes.save_artist_info)
+app.get('/ajax/amazon/album_info', routes.amazon_album_info)
+app.get('/ajax/gigulate/artist_news', requiresLogin, routes.gigulate_artist_news)
 
 app.listen(3000, () ->
   console.log("Express server listening on port: 3000" + " environment: " + app.settings.env)
