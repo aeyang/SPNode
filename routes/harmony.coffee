@@ -113,6 +113,11 @@ exports.save_artist_info = (req, res) ->
     console.log(status)
     res.send(status)
 
+exports.lastFM_artist_events = (req, res) ->
+  band = req.body.name
+  console.log "in artist events"
+  lastFM.getArtistEvents band, (data, status) ->
+    res.json(data, status)
 
 exports.gigulate_artist_news = (req, res) ->
   console.log("in ajax gigulate")
@@ -122,7 +127,5 @@ exports.gigulate_artist_news = (req, res) ->
 
 exports.amazon_album_info = (req, res) ->
   Amazon.getAlbumInfo req.query.name, (data, status) ->
-    console.log("Calling amazon")
-    console.log(loadXML(data))
-    console.log(status)
-
+    #data is a JSON string
+    res.json(data)

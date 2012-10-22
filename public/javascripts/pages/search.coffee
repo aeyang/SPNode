@@ -12,7 +12,7 @@ $ ->
         catch e
           alert('invalid JSON')
         
-        if $('search_info_div').children()
+        if $('search_info_div').children().length > 0
           $('#search_info_div').empty()
 
         $('#search_info_div').append('<h3>'+obj.artist.name+'</h3>')

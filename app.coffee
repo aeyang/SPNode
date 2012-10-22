@@ -62,6 +62,7 @@ app.post('/users/new', routes.postUser)
 app.get('/avatars', routes.avatars)
 app.get('/ajax/lastFM/artist_info', routes.lastFM_artist_info)
 app.post('/ajax/lastFM/artist_info', routes.save_artist_info)
+app.get('/ajax/lastFM/artist_events', routes.lastFM_artist_events)
 app.get('/ajax/amazon/album_info', routes.amazon_album_info)
 app.get('/ajax/gigulate/artist_news', requiresLogin, routes.gigulate_artist_news)
 
