@@ -34,7 +34,7 @@ module.exports.getArtistEvents = getArtistEvents = (artist, callback) ->
       '&format=json' + 
       '&api_key=' + api_key + 
       '&artist=' + encodeURIComponent(artist) +
-      '&festivalsonly=1' + 
+      '&festivalsonly=0' + 
       '&autocorrect=1',
     method: 'GET',
     headers: 

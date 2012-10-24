@@ -114,8 +114,9 @@ exports.save_artist_info = (req, res) ->
     res.send(status)
 
 exports.lastFM_artist_events = (req, res) ->
-  band = req.body.name
+  band = req.query.name
   console.log "in artist events"
+
   lastFM.getArtistEvents band, (data, status) ->
     res.json(data, status)
 

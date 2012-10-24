@@ -1,11 +1,14 @@
 extends layouts/layout
 
+append scripts
+  script(type='text/coffeescript', src='javascripts/pages/concerts.coffee')
+
 block content 
   h1#lastFM
 
   #lastFM_content_div
 
-    form(action='/lastFM', method='GET')
+    form
       label(for='lastFM_search_form') Find Upcoming Concerts and Festivals 
       input#lastFM_search_form(type='text', name='lastFM_search_form')
       input(type='submit', value='List')

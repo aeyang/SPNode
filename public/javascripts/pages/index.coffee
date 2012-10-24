@@ -8,6 +8,8 @@ $ ->
       catch e
         alert('invalid JSON')
       
+      console.log obj
+      
       if $('#home_feed_div').children().length > 0
         $('#home_feed_div').empty()
 

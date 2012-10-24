@@ -6,7 +6,6 @@ $ ->
       alert "No Band Specified!"
     else
 	    $.getJSON '/ajax/amazon/album_info?', {name: band_name}, (data, status) ->
-
         try
           #parseJSON turns the given JSON string into the javascript object
           obj = $.parseJSON(data)
