@@ -3,6 +3,7 @@ $ ->
   $("#home_newsfeed_button").bind 'click', () ->
     console.log("clicked")
     $.getJSON '/ajax/gigulate/artist_news?', (data, status) ->
+      console.log data
       try
         obj = $.parseJSON(data)
       catch e
