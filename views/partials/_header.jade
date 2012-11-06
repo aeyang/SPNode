@@ -1,53 +1,53 @@
-div
-  div.navigation#nav
-    div.item.home
-      img.circle(src="../../images/navigation/bg_home.png", alt="", width="199", height='199')
-      a.icon(href='#')
-      h2 Home 
-      ul
-        li 
-          a(href='/') Home
-        li 
-          a(href='/about') About 
-          
-    div.item.user
-      img.circle(src="../../images/navigation/bg_user.png", alt="", width="199", height='199')
-      a.icon(href='#')
-      h2 User 
-      ul
-        if(session.user)
-          li 
-            a(href='/users/profile') Profile 
-          li
-            a(href='/users/signout') Sign Out
-        else
-          li
-            a(href='/sessions/new') Sign In 
-          li 
-            a(href='/users/new') Sign Up
 
-    
-    div.item.concerts
-      img.circle(src="../../images/navigation/bg_concerts.png", alt="", width="199", height='199')
-      a.icon(href='#')
-      h2 Concerts 
-      ul
+nav.navigation#nav
+  div.item.home
+    img.circle(src="../../images/navigation/bg_home.png", alt="", width="199", height='199')
+    a.icon(href='#')
+    h2 Home 
+    ul
+      li 
+        a(href='/') Home
+      li 
+        a(href='/about') About 
+        
+  div.item.user
+    img.circle(src="../../images/navigation/bg_user.png", alt="", width="199", height='199')
+    a.icon(href='#')
+    h2 User 
+    ul
+      if(session.user)
         li 
-          a(href='/lastFM') LastFM 
+          a(href='/users/profile') Profile 
+        li
+          a(href='/users/signout') Sign Out
+      else
+        li
+          a(href='/sessions/new') Sign In 
+        li 
+          a(href='/users/new') Sign Up
 
-    div.item.albums
-      img.circle(src="../../images/navigation/bg_albums.png", alt="", width="199", height='199')
-      a.icon(href='#')
-      h2 Albums 
-      ul
-        li 
-          a(href='/amazon') Amazon 
+  
+  div.item.concerts
+    img.circle(src="../../images/navigation/bg_concerts.png", alt="", width="199", height='199')
+    a.icon(href='#')
+    h2 Concerts 
+    ul
+      li 
+        a(href='/lastFM') LastFM 
 
-    div.item.search
-      img.circle(src="../../images/navigation/bg_search.png", alt="", width="199", height='199')
-      a.icon(href='#')
-      h2 Search  
-      ul
-        li 
-          a(href='/search') Search  
+  div.item.albums
+    img.circle(src="../../images/navigation/bg_albums.png", alt="", width="199", height='199')
+    a.icon(href='#')
+    h2 Albums 
+    ul
+      li 
+        a(href='/amazon') Amazon 
+
+  div.item.search
+    img.circle(src="../../images/navigation/bg_search.png", alt="", width="199", height='199')
+    a.icon(href='#')
+    h2 Search  
+    ul
+      li 
+        a(href='/search') Search  
 

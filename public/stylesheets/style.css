@@ -13,10 +13,10 @@
 html 
 {
     
-    background: url(../images/canvas.jpg) fixed;
+    /*background: url(../images/canvas.jpg) fixed;*/
     /*background-repeat: no-repeat, no-repeat;*/ 
     /*background-position: right bottom, center center;*/
-    background-size: auto, cover;
+    /*background-size: auto, cover;*/
 }
 
 /* Top-level headers should look fancy */
@@ -31,13 +31,19 @@ h1
 
 /* Header styles */
 .navigation{
-    margin: 0px auto;
+    position:absolute;
+    left: 0;
+    top: 0;
+    /*margin: 0px auto;*/
     font-family: "Trebuchet MS", sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: bold;
     letter-spacing: 1.4px;
-    height: 200px;
+    width: 100%;
+    height:200px;
+    background: url(../images/canvas.jpg) repeat-x;
+    /*height: 200px;*/
 }
 .navigation .item{
     position:absolute;

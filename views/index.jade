@@ -4,7 +4,9 @@ append scripts
   script(type='text/coffeescript', src='javascripts/pages/index.coffee')
 
 block content
-  h1#home_title_h1 Welcome to <br/> Harmony
+  div#index_content
+    div#title_div
+      h1#home_title_h1 Welcome to <br/> Harmony
+      button#home_newsfeed_button News Feed
 
-  button#home_newsfeed_button News Feed
-  #home_feed_div
+    #home_feed_div
