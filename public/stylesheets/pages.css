@@ -27,13 +27,12 @@ h5{
 }
 
 #title_div{
-  display:inline-block;
-  width:315px;
+  text-align: center;
 }
 
 #index_content{
   position:absolute;
-  top:200px;
+  top:160px;
   left:0px;
   width:100%;
   height:100%;
@@ -43,13 +42,12 @@ h5{
 }
 
 #home_feed_div{
-  position: relative;
-  /*border: 2px solid;*/
-  display:inline-block;
-  height:100%;
-  width:1400px;
-  float:right;
-  overflow:auto;
+  height:90%;
+  width:90%;
+  overflow:hidden;
+  margin-left: auto;
+  margin-right: auto;
+  /*display:table;*/
 }
 
 
@@ -60,35 +58,59 @@ h5{
   font-family: Palatino;
 }
 
+#home_button_div{
+  text-align:center;
+  height:20%;
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+  opacity: 0.5;
+  background-color: #d1a152;
+}
+
 #home_newsfeed_button{
-  width: 315px;
-  height: 150px;
-  margin-top: 40px;
-  margin-left: 10px;
-  border-radius:8px;
+  width: 100px;
+  height: 50px;
   box-shadow: rgba(0,0,0,1) 0 1px 0;
   text-shadow: rgba(0,0,0,.4) 0 1px 0;
   font-size: 17px;
   font-family: Georgia, serif;
   vertical-align: middle;
-  opacity:0.2;
+  opacity:0.7;
 
 }
 
 #newsfeed_story_p {
-  margin: 10px;
   font-family: Arial;
-  display: inline-block;
-  border: 3px solid;
-  border-radius: 15px;
+  /*display: inline-block;*/
+  border: 1px solid;
   padding: 5px;
-  opacity:0.5;
+  opacity:0.8;
+  width:345px;
+  height:20%;
+  vertical-align:top;
+}
+
+#gallery li{
+  float:left;
+  list-style:none;
+  margin: 0 20px 0 20px;
+}
+
+#gallery{
+  position:relative;
+  top:0;
+  left:0;
+}
+
+#newsfeed_story_p p{
+  margin:5px;
 }
 
 #newsfeed_story_p:hover{
   opacity:1;
 }
-
+         
 #newsfeed_story_p:nth-child(even){
   background-color:#F09609;
 }
@@ -101,6 +123,9 @@ h5{
   background-color:#E51400
 }
 
+/*#newsfeed_story_p:nth-child(4n+0){
+  display:table-row;
+}*/
 
 /* about page styles */
 #about_content_div{
@@ -257,12 +282,12 @@ strong{
 }*/
 
 /* Search page styles */
-/*#search_content_div{
+#search_content_div{
   position:relative;
   top:170px;  
-}*/
+}
 
-/*#search_info_div {
+#search_info_div {
   border-radius: 25px;
   margin: 20px;
 }
@@ -282,7 +307,7 @@ strong{
 #search_save_div {
   width: 100px;
   height: 100px;
-}*/
+}
 
 /* Session stuff */
 #session_content_div{
