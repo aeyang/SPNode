@@ -53,7 +53,7 @@ $ ->
                        obj.events.event.title + '</li>'
 
         list.append items.join(' ')
-        $(".lastFM_info_span").css('cursor', 'pointer').click(eventClick)
+        $(".lastFM_panel_front").css('cursor', 'pointer').click(eventClick)
 
 showConcertMap = () ->
   console.log("in showConcertMap")
@@ -76,8 +76,13 @@ eventClick = () ->
   #We do the same as above, check if there is only one event object, or an array of event objects.
   if($.isArray(window.globalData.events.event))
     # A Fix. This will display the right times for concerts with the same name. Can work for one event too
-    temp = window.globalData.events.event[$(this).parent().parent().parent().parent().index()]
+    temp = window.globalData.events.event[$(this).parent().parent().index()]
     window.eventOfInterest = temp
+
+    if $('#lastFM.middle_div').children().length != 0
+      $('#lastFM.middle_div').empty()
+
+    $('#lastFM_middle_div').append($(this).find('.lastFM_info_span'))
     showConcertMap()
   else
     if(window.globalData.events.event.title == $(this).text())

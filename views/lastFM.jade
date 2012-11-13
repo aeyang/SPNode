@@ -9,15 +9,17 @@ block content
 
   #lastFM_content_div
 
-    form
-      label(for='lastFM_search_form') Find Upcoming Concerts and Festivals 
-      input#lastFM_search_form(type='text', name='lastFM_search_form')
-      input(type='submit', value='List')
+    #lastFM_form_div
+      form
+        input#lastFM_search_form(type='text', name='lastFM_search_form')
+        input(type='submit', id='lastFM_submit', value="")
+    #lastFM_show_div
+      #lastFM_left_div
+        p Upcoming Events List:
+        ul#lastFM_events_list
 
-    #lastFM_left_div
-      p Upcoming Events List:
-      ul#lastFM_events_list
+      #lastFM_middle_div
 
-    #lastFM_right_div
-      #lastFM_map_div
-        p Select an Event to see the map!
+      #lastFM_right_div
+        #lastFM_map_div
+          p Select an Event to see the map!

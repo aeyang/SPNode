@@ -192,8 +192,46 @@ h5{
 /* lastFM page styles */
 
 #lastFM_content_div{
-  position:relative;
-  top:150px;
+  position:absolute;
+  top:160px;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+}
+
+#lastFM_form_div{
+  border:solid;
+  height:30%;
+  background: url(../images/music_equalizer.jpg);
+  background-size: 100%;
+}
+
+#lastFM_form_div form{
+  text-align:center;
+}
+
+#lastFM_search_form{
+  width: 40%;
+  font-size: 40px;
+  vertical-align:middle;
+}
+
+#lastFM_submit{
+  background: transparent url(../images/Arrow_button.png) no-repeat;
+  background-size:100%;
+  border:none;
+  cursor:pointer;
+  margin-left:-45px;
+  width: 40px;
+  height: 40px;
+  padding: 0 0 0 0;
+  vertical-align: middle;
+}
+
+#lastFM_show_div{
+  border:solid;
+  height:70%;
+  width:100%;
 }
 
 #lastFM_upcoming_submit{
@@ -203,9 +241,12 @@ h5{
 #lastFM_left_div{
   margin:0;
   padding:0;
-  width: 49%;
+  width: 33%;
   height: 100%;
   float:left;
+  display:inline-block;
+  border:solid;
+  overflow:auto;
   /* try this
   position:absolute;
   top:0;
@@ -214,40 +255,45 @@ h5{
   */
 }
 
+#lastFM_middle_div{
+  display:inline-block;
+  width:33%;
+  height:100%;
+  border:solid;
+  text-align: center;
+}
+
 #lastFM_right_div{
   margin:0;
   padding:0;
-  width: 49%;
+  width: 33%;
   height: 100%;
+  display:inline-block;
+  border:solid;
   float:right;
-  /* try this
-  position:absolute;
-  top:0;
-  right:0;
-  width:50%;
-  */
 }
 
-strong{
-  margin-top:15px;
+#lastFM_events_list .lastFM_info_span{
+  display:none;
 }
 
-#lastFM_content_div{
-  position:relative;
-  top:200px;  
+#lastFM_middle_div .lastFM_info_span{
+  vertical-align:middle;
+  font-family:sans-serif, arial;
+  font-size:20px;
 }
 
-#lastFM_map_div {
-  position: fixed;
-  width: 500px; 
-  height: 400px; 
-  float: none;
+#lastFM_map_div { 
   box-shadow: 10px 10px 5px #888888;
-  margin: 20px;
+  display: relative;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
 }
 
 
-#lastFM_events_list {
+/*#lastFM_events_list {
   margin:0;
   padding:0;
   list-style-type: none;
@@ -280,19 +326,13 @@ strong{
 }
 
 .lastFM_panel_front{
-  /*border:1px solid #008AFF;*/
+  /*border:1px solid #008AFF;
   margin-top:10px;
   margin-bottom: 10px;
   overflow: hidden;
   border-radius:25px;
 }
 
-.lastFM_info_span{
-  display:none;
-  background-color:#000;
-  margin: 10px;
-  opacity:0.8;
-}
 
 .lastFM_info_span p, .lastFM_info_span h3{
   color:white;
@@ -306,7 +346,7 @@ strong{
   clear:both;
   float:left;
   width:100%;
-}
+}*/
 
 /* Amazon page styles */
 /*#amazon_content_div{
