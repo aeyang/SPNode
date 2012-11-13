@@ -120,9 +120,63 @@ h5{
   float:right;
   color:white;
 }
-/*#newsfeed_story_p:nth-child(4n+0){
-  display:table-row;
-}*/
+
+/* Profile page styels */
+#profile_div{
+  position:absolute;
+  top:160px;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  background: url(../images/dark-user-interface-design.jpg);
+  background-size:100%;
+}
+
+#profile_user_div img{
+  display:inline;
+}
+
+#profile_user_div h1{
+  display:inline;
+  vertical-align: top;
+  margin-left:30%;
+}
+
+#show_div{
+  height:80%;
+  width:80%;
+  margin-left:auto;
+  margin-right:auto;
+  overflow:hidden;
+}
+
+#show_div li{
+  list-style:none;
+  float:left;
+  margin: 0 25px 0 25px;
+}
+
+#show_div li p{
+  text-align:center;
+  color:white;
+  font-size: 25px;
+}
+
+#show_div ul{
+  position:relative;
+  top:0;
+  left:0;
+}
+
+#profile_bands_div{
+  height:100%;
+}
+
+#profile_bands_div b{
+  font-size:30px;
+}
+
+
 
 /* about page styles */
 #about_content_div{

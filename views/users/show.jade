@@ -1,12 +1,22 @@
 extends ../layouts/layout
 
-block content
-  h1= session.user
-  img(src='/avatars')
+append scripts
+  script(type='text/coffeescript', src='../javascripts/pages/show.coffee')
 
-  b Bands you are following:
-  #show_div
-    ul
-      - each item in images
-        li= item.name
-          img(src=item.url)
+block content
+  #profile_div
+    #profile_user_div
+      img(src='/avatars')
+      h1= session.user
+
+    #profile_bands_div
+      span
+        b Bands you are following:
+      a(href='#', id='feed_last') <
+      a(href='#', id='feed_next') >
+      #show_div
+        ul
+          - each item in images
+            li
+              p= item.name
+              img(src=item.url)
