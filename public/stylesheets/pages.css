@@ -266,11 +266,15 @@ h5{
 #lastFM_right_div{
   margin:0;
   padding:0;
-  width: 33%;
+  width: 32%;
   height: 100%;
   display:inline-block;
   border:solid;
   float:right;
+}
+
+#lastFM_events_list{
+  list-style:none;
 }
 
 #lastFM_events_list .lastFM_info_span{

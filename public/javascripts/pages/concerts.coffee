@@ -79,8 +79,8 @@ eventClick = () ->
     temp = window.globalData.events.event[$(this).parent().parent().index()]
     window.eventOfInterest = temp
 
-    if $('#lastFM.middle_div').children().length != 0
-      $('#lastFM.middle_div').empty()
+    if $('#lastFM_middle_div').children().length != 0
+      $('#lastFM_middle_div').empty()
 
     $('#lastFM_middle_div').append($(this).find('.lastFM_info_span'))
     showConcertMap()
